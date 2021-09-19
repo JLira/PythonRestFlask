@@ -1,5 +1,6 @@
 from flask import Flask
-from flask_restful import Resource, Api
+from flask_restful import Api
+from resources.Hotel import Hoteis, Hotel
 
 app = Flask(__name__)
 api = Api(app)
@@ -12,7 +13,7 @@ hoteis = [{
     'cidade': 'Rio de Janeiro'
 },
 {
-    'hotel_id': 'braco', 
+    'hotel_id': 'bravo', 
     'nome': 'Bravo Hotel',
     'estrelas': 3.5,
     'diaria':320.80, 
@@ -34,6 +35,9 @@ class Hoteis(Resource):
 
 
 api.add_resource(Hoteis, '/hoteis')
+api.add_resource(Hotel, '/hoteis/<string:hotel_id>')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
