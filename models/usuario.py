@@ -24,6 +24,15 @@ class UserModel(banco.Model):
         if user:
             return user
         return None  
+    
+    
+    @classmethod
+    def find_by_login(cls, login):
+        user = cls.query.filter_by(login=login).first() #SELETC * FROM hoteis WHERE hote_id = hote_id
+        if user:
+            return user
+        return None  
+
 
     def save_user(self):
         banco.session.add(self)
