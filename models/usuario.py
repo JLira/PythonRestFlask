@@ -15,7 +15,8 @@ class UserModel(banco.Model):
     def json(self):
         return{
             'user_id' : self.user_id, 
-            'login': self.login 
+            'login': self.login, 
+            'senha': self.senha 
         }
 
     @classmethod
