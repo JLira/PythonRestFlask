@@ -60,7 +60,7 @@ class UserLogin(Resource):
 class UserLogout(Resource):
     @jwt_required()
     def post(self):
-        jwt_id = get_jwt()['jti'] #JWT Token Identifier
+        jwt_id = get_jwt()['jti'] #JWT Token Identifier aula 56
         BLACKLIST.add(jwt_id)
         return{'message': 'Logged out successfully!'}, 200
 
